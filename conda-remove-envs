@@ -1,0 +1,40 @@
+#!/bin/bash
+
+help() {
+  cat <<EOF
+  usage: conda-remove-envs NAMES [-h]
+
+  args:
+    -h, --help  Show this text and exit
+
+  examples:
+    conda-remove-envs
+    conda-remove-envs env1 env2
+EOF
+}
+
+main() {
+  local envs
+
+  while (( "$#" > 0 )); do
+    case "$1" in
+      -h | --help)
+        help
+        shift
+        exit
+        ;;
+      *)
+        if [[ "$1" != "base" ]]; then
+          envs="$envs $1"
+        fi
+        shift
+        ;;
+    esac
+  done
+
+  for env in $envs; do
+    conda env remove --name "$env"
+  done
+}
+
+main "$@"
