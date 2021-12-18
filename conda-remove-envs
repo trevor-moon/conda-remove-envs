@@ -1,0 +1,41 @@
+#!/bin/bash
+
+help() {
+  cat <<EOF
+  usage: conda-remove-envs NAMES [-h]
+
+  args:
+    -h, --help  Show this text and exit
+
+  examples:
+    conda-remove-envs
+    conda-remove-envs env1 env2
+EOF
+}
+
+print_argerr() {
+  printf "Unknown arg '%s'\n" "$1"
+  printf "See '%s' for more information\n" "conda-remove-envs --help"
+}
+
+main() {
+  while (("$#" > 0)); do
+    case "$1" in
+    -h | --help)
+      help
+      shift
+      exit
+      ;;
+    *)
+      print_argerr "$1"
+      exit 1
+      ;;
+    esac
+  done
+
+  for env in "$@"; do
+    conda env remove --name env
+  done
+}
+
+main "$@"
