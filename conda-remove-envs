@@ -8,8 +8,8 @@ help() {
     -h, --help  Show this text and exit
 
   examples:
-    conda-remove-envs
-    conda-remove-envs env1 env2
+    conda-remove-envs env1
+    conda-remove-envs env2 env3
 EOF
 }
 
