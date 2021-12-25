@@ -5,7 +5,7 @@ Remove one or more conda environments
 1. Clone the repo
 
 ```
-git clone https://github.com/trevor-moon/conda_remove_envs.git
+git clone https://github.com/trevor-moon/conda-remove-envs.git
 ```
 
 2. Run with bash
