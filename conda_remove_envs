@@ -2,14 +2,14 @@
 
 help() {
   cat <<EOF
-  usage: conda-remove-envs NAMES [-h]
+  usage: conda_remove_envs NAMES [-h]
 
   args:
     -h, --help  Show this text and exit
 
   examples:
-    conda-remove-envs env1
-    conda-remove-envs env2 env3
+    conda_remove_envs env1
+    conda_remove_envs env2 env3
 EOF
 }
 
