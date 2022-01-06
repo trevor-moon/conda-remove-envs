@@ -32,7 +32,7 @@ def remove_env(env):
     sp.run(cmd)
 
 
-def cli():
+def main():
     """Run command-line program"""
     args = parse_args()
     for env in args.name:
@@ -40,4 +40,4 @@ def cli():
 
 
 if __name__ == "__main__":
-    cli()
+    main()
