@@ -26,7 +26,8 @@ def list_envs():
 
 def remove_env(env):
     """Remove conda environment by name"""
-    sp.run(["conda", "env", "remove", "-n", env])
+    cmd = f"conda env remove -n {env}"
+    sp.run(cmd.split())
 
 
 def cli():
