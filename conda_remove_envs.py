@@ -15,8 +15,10 @@ def parse_args():
 def list_envs():
     """Returns conda environments as list"""
     # conda env list output
-    proc = sp.run(["conda", "env", "list"], stdout=sp.PIPE)
+    cmd = f"conda env list".split()
+    proc = sp.run(cmd, stdout=sp.PIPE)
     out = proc.stdout.decode("utf-8")
+
     # return conda envs as list
     env_list = re.findall("[\w-]+\s\s", out)
     for i, env in enumerate(env_list):
@@ -26,8 +28,8 @@ def list_envs():
 
 def remove_env(env):
     """Remove conda environment by name"""
-    cmd = f"conda env remove -n {env}"
-    sp.run(cmd.split())
+    cmd = f"conda env remove -n {env}".split()
+    sp.run(cmd)
 
 
 def cli():
