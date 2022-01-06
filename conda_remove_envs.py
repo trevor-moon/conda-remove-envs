@@ -36,15 +36,12 @@ def remove_env(env):
     sp.run(["conda", "env", "remove", "-n", env])
 
 
-def remove(env):
-    """Remove conda environment(s) by name"""
-    for e in env:
-        remove_env(e)
+def cli():
+    """Run command-line program"""
+    args = parse_args()
+    for env in args.name:
+        remove_env(env)
 
 
 if __name__ == "__main__":
-    args = parse_args()
-    env_list = list_envs()
-    if not args.all:
-        env_list = args.name
-    remove(env_list)
+    cli()
