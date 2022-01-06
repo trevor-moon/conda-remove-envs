@@ -6,14 +6,7 @@ import re
 def parse_args():
     parser = argparse.ArgumentParser(description="Remove conda environment(s)")
     parser.add_argument(
-        "-a", "--all", action="store_true", help="Remove all except base"
-    )
-    parser.add_argument(
-        "-n",
-        "--name",
-        metavar="NAMES",
-        nargs="+",
-        help="Remove conda environments NAMES",
+        "-n", "--name", metavar="ENVIRONMENT", nargs="+", help="name of environment(s)",
     )
     args = parser.parse_args()
     return args
