@@ -20,3 +20,11 @@ def test_removal_by_name_should_pass(envlist):
     subprocess.run(cmd.split())
     actual = cenv.list_envs()
     assert expected == actual
+
+
+def test_list_envs():
+    actual = cenv.list_envs()
+    actual.sort()
+    expected = list(set(actual))
+    expected.sort()
+    assert actual == expected
