@@ -20,7 +20,7 @@ def list_envs():
     out = proc.stdout.decode("utf-8")
 
     # return conda envs as list
-    env_list = re.findall("[\w-]+\s\s", out)
+    env_list = re.findall("^[\w-]+\s\s", out)
     for i, env in enumerate(env_list):
         env_list[i] = env.strip()
     return env_list
