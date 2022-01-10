@@ -1,5 +1,6 @@
 import pytest
 import subprocess
+import warnings
 
 import conda_remove_envs as cenv
 
@@ -28,3 +29,13 @@ def test_list_envs():
     expected = list(set(actual))
     expected.sort()
     assert actual == expected
+
+
+def test_base_not_removed():
+    with pytest.warns(UserWarning) as w:
+        warnings.warn("Cannot remove 'base' environment", UserWarning)
+
+    cenv.remove_env("base")
+
+    assert w[0].category == "UserWarning"
+    assert w[0].message == "Cannot remove 'base' environment"
