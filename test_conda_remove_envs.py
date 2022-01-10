@@ -31,11 +31,8 @@ def test_list_envs():
     assert actual == expected
 
 
-def test_base_not_removed():
-    with pytest.warns(UserWarning) as w:
+def test_remove_base_warning():
+    with pytest.warns(UserWarning) as record:
         warnings.warn("Cannot remove 'base' environment", UserWarning)
-
     cenv.remove_env("base")
-
-    assert w[0].category == "UserWarning"
-    assert w[0].message == "Cannot remove 'base' environment"
+    assert record[0].message.args[0] == "Cannot remove 'base' environment"
