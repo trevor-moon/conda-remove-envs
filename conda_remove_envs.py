@@ -29,18 +29,18 @@ def list_envs():
 
 def remove_env(env):
     """Remove conda environment by name"""
-    cmd = f"conda env remove -n {env}".split()
-    sp.run(cmd)
+    if env != "base":
+        cmd = f"conda env remove -n {env}".split()
+        sp.run(cmd)
+    else:
+        warnings.warn("Cannot remove 'base' environment")
 
 
 def main():
     """Run command-line program"""
     args = parse_args()
     for env in args.name:
-        if env != "base":
-            remove_env(env)
-        else:
-            warnings.warn("Cannot remove 'base' environment")
+        remove_env(env)
 
 
 if __name__ == "__main__":
