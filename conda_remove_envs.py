@@ -36,7 +36,10 @@ def main():
     """Run command-line program"""
     args = parse_args()
     for env in args.name:
-        remove_env(env)
+        if env != "base":
+            remove_env(env)
+        else:
+            print("Cannot remove 'base' environment")
 
 
 if __name__ == "__main__":
