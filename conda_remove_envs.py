@@ -1,6 +1,7 @@
 import subprocess as sp
 import argparse
 import re
+import warnings
 
 
 def parse_args():
@@ -39,7 +40,7 @@ def main():
         if env != "base":
             remove_env(env)
         else:
-            print("Cannot remove 'base' environment")
+            warnings.warn("Cannot remove 'base' environment")
 
 
 if __name__ == "__main__":
