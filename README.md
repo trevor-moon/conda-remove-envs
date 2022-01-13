@@ -2,7 +2,13 @@
 
 Remove multiple conda environments.
 
-The tool was created to bulk-remove conda environments to avoid the need to have multiple `conda env remove -n NAME` commands. Instead, you can now remove multiple environments with
+The tool was created to bulk-remove conda environments to avoid the need to have multiple 
+
+```text
+conda env remove -n NAME
+```
+
+Instead, you can now remove multiple environments with
 
 ```text
 python conda_remove_envs.py -n NAME1 NAME2 ...
@@ -39,7 +45,7 @@ cd conda-remove-envs
 Use
 
 ```text
-python conda-remove-envs.py --help
+python conda_remove_envs.py --help
 ```
 
 ## Roadmap
